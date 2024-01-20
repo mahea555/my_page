@@ -1,0 +1,34 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block title %}
+     This Post Title
+{% endblock%}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "post.css" %}">
+{% endblock%}
+
+{% block content %}
+    <section id="summary">
+        <h2>Post Title</h2>
+        <article>
+            <img src="{% static "blog/images/mountains.jpg"%}" alt="Post Title">
+            <address>By mahendra</address>
+            <div>
+                Last updated on <time>Jan 18th</time>
+            </div>
+        </article>
+    </section>
+<main>
+    <p>
+        Django's primary goal is to ease the creation of complex, database-driven websites. The framework emphasizes reusability and "pluggability" of components, less code, low coupling, rapid development, and the principle of don't repeat yourself.[9] Python is used throughout, even for settings, files, and data models. Django also provides an optional administrative create, read, update and delete interface that is generated dynamically through introspection and configured via admin models.
+    </p>
+
+    <p>
+        Django's primary goal is to ease the creation of complex, database-driven websites. The framework emphasizes reusability and "pluggability" of components, less code, low coupling, rapid development, and the principle of don't repeat yourself.[9] Python is used throughout, even for settings, files, and data models. Django also provides an optional administrative create, read, update and delete interface that is generated dynamically through introspection and configured via admin models.
+    </p>
+    <p>
+        Django's primary goal is to ease the creation of complex, database-driven websites. The framework emphasizes reusability and "pluggability" of components, less code, low coupling, rapid development, and the principle of don't repeat yourself.[9] Python is used throughout, even for settings, files, and data models. Django also provides an optional administrative create, read, update and delete interface that is generated dynamically through introspection and configured via admin models.
+    </p>
+</main>
+{% endblock%}

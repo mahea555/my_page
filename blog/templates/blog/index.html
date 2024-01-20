@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock%}
+{% block css_files %}
+   
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock%}
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/m.jpg" %}" alt="MAHE - The Auther of this blog"/>
+            <h2> MAHENDRA' BLOG</h2>
+        </header>
+        <p> Hi, I'm MAhendra and I love to write blog about mountains</p>
+    </section>
+
+    <section id="latest-posts"> 
+        <h2>My latest thoughs</h2>
+        
+        <ul>
+            {% for post in posts %}
+            {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+
+    </section>
+
+    <section id="about">
+        <h2>What I Do</h2>
+        <p> I love programing and do it very happily.</p>
+        <p> This is my hobby.Thanks! </p>
+    </section>
+
+{% endblock%}

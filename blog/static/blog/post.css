@@ -1,0 +1,46 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  
+  .post a:hover,
+  .post a:active {
+    transform: scale(1.1);
+    background-color: #390281;
+    color: white;
+  }
+  
+
+  .post h3 {
+    margin: 0.25rem 0;
+  }
+  
+  .post time {
+    color: #666666;
+    margin: 0.25rem;
+    font-style: italic;
+    font-size: 0.85rem;
+  }
+  
+  .post:hover time,
+  .post:active time {
+    color: white;
+  }
+
+  
+  .post img {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  
+  .post a {
+    height: 22rem;
+    transform-origin: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    background-color: white;
+  }
