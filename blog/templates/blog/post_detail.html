@@ -2,33 +2,27 @@
 {% load static %}
 
 {% block title %}
-     This Post Title
+     {{post.title}}
 {% endblock%}
 {% block css_files %}
-    <link rel="stylesheet" href="{% static "post.css" %}">
+    <link rel="stylesheet" href="{% static "blog/post_detail.css" %}">
 {% endblock%}
 
 {% block content %}
     <section id="summary">
-        <h2>Post Title</h2>
+        <h2>{{post.title}}</h2>
         <article>
-            <img src="{% static "blog/images/mountains.jpg"%}" alt="Post Title">
-            <address>By mahendra</address>
+            <img src="{{post.image.url}}" alt="Post Title">
+            <address>{{post.author}}</address>
             <div>
-                Last updated on <time>Jan 18th</time>
+                Last updated on <time>{{post.date | date:"d M Y"}}</time>
             </div>
         </article>
     </section>
 <main>
-    <p>
-        Django's primary goal is to ease the creation of complex, database-driven websites. The framework emphasizes reusability and "pluggability" of components, less code, low coupling, rapid development, and the principle of don't repeat yourself.[9] Python is used throughout, even for settings, files, and data models. Django also provides an optional administrative create, read, update and delete interface that is generated dynamically through introspection and configured via admin models.
-    </p>
 
-    <p>
-        Django's primary goal is to ease the creation of complex, database-driven websites. The framework emphasizes reusability and "pluggability" of components, less code, low coupling, rapid development, and the principle of don't repeat yourself.[9] Python is used throughout, even for settings, files, and data models. Django also provides an optional administrative create, read, update and delete interface that is generated dynamically through introspection and configured via admin models.
-    </p>
-    <p>
-        Django's primary goal is to ease the creation of complex, database-driven websites. The framework emphasizes reusability and "pluggability" of components, less code, low coupling, rapid development, and the principle of don't repeat yourself.[9] Python is used throughout, even for settings, files, and data models. Django also provides an optional administrative create, read, update and delete interface that is generated dynamically through introspection and configured via admin models.
-    </p>
+        {{post.content|linebreaks}}
+        
+    
 </main>
 {% endblock%}
