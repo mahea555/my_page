@@ -10,7 +10,7 @@
     <article class="post">
             
             <a href="{% url "post-detail-page" post.slug %}">
-            <img src="{{post.image.url}}" alt="{{post.title}}"/>
+            <img src="{{post.image_name.url}}" alt="{{post.title}}"/>
             <div class="post_containt">
                 <h3>{{post.title}}</h3>
                 <p> {{post.excerpt}} </p>

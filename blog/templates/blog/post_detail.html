@@ -11,8 +11,34 @@
 {% block content %}
     <section id="summary">
         <h2>{{post.title}}</h2>
+        <div>
+            {% for tag in post_tags %}
+            <span class="tag"> {{tag.caption}} </span>
+            {% endfor %}
+        </div>
+
+
+
+        <div>
+            <form action="{% url "read-later" %}" method="POST">
+                {%csrf_token%}
+                <input type="hidden" value="{{post.id}}" name="post_id">
+                <button> 
+                    {% if saved_for_later %}
+                        Remove from "Read LAter" list
+                    {%else%}
+                        Read Later
+                    {%endif%}
+                
+                </button>
+            </form>
+        </div>
+
+
+
+
         <article>
-            <img src="{{post.image.url}}" alt="Post Title">
+            <img src="{{post.image_name.url}}" alt="Post Title">
             <address>{{post.author}}</address>
             <div>
                 Last updated on <time>{{post.date | date:"d M Y"}}</time>
@@ -20,9 +46,30 @@
         </article>
     </section>
 <main>
-
-        {{post.content|linebreaks}}
-        
-    
+        {{post.content|linebreaks}}   
 </main>
+
+<section>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <h2>{{comment.user_name}}</h2>
+                <p>{{comment.text}}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+<div>
+    <form action="{% url "post-detail-page" post.slug %}" method="POST">
+        {% csrf_token %}
+        {% for form_field in comment_form %}
+        {{form_field.label_tag}}
+        {{form_field}}
+        {{form_field.errors}}
+        {%endfor%}
+        <button>Save Comment</button>
+    </form>
+
+</div>
+
 {% endblock%}
